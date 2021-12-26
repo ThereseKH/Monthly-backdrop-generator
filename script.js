@@ -53,7 +53,7 @@ function downloadCalender() {
       })
       .then(function (dataUrl) {
         var link = document.createElement("a");
-        link.download = "Your's truly backdrop.jpeg";
+        link.download = "Your's truly backdrop";
         link.href = dataUrl;
         link.click();
       });
