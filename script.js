@@ -46,18 +46,20 @@ window.addEventListener("load", () => {
 function downloadCalender() {
   // Use dom to image to convert preview to image
   console.debug("Start to download");
-  domtoimage
-    .toJpeg(document.getElementById("preview"), {
-      quality: 1.0,
-      height: 1688,
-      width: 780,
-    })
-    .then(function (dataUrl) {
-      var link = document.createElement("a");
-      link.download = "Your's truly backdrop.jpeg";
-      link.href = dataUrl;
-      link.click();
-    });
+  domtoimage.toPng(document.getElementById("preview")).then(function (dataUrl) {
+    domtoimage
+      .toPng(document.getElementById("preview"), {
+        quality: 1.0,
+        height: 1688,
+        width: 780,
+      })
+      .then(function (dataUrl) {
+        var link = document.createElement("a");
+        link.download = "Your's truly backdrop.jpeg";
+        link.href = dataUrl;
+        link.click();
+      });
+  });
 }
 
 /**
