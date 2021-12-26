@@ -86,7 +86,7 @@ function downloadCalender() {
   // Use dom to image to convert preview to image
   console.debug("Start to download");
   domtoimage
-    .toJpeg(document.getElementById("preview"), { quality: 0.95 })
+    .toJpeg(document.getElementById("preview"), { quality: 1.0 })
     .then(function (dataUrl) {
       var link = document.createElement("a");
       link.download = "Your's truly backdrop.jpeg";
@@ -95,7 +95,6 @@ function downloadCalender() {
     });
 }
 
-// TODO: Render 2d array of dates as a html table
 window.addEventListener("load", () => {
   // Website has loaded and will run the code inside this function
 
@@ -140,5 +139,4 @@ window.addEventListener("load", () => {
   });
 });
 
-// TODO: fetch image from a source
 // TODO: Import font types
