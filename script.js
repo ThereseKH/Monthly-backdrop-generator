@@ -50,8 +50,6 @@ function downloadCalender() {
     domtoimage
       .toPng(document.getElementById("preview"), {
         quality: 1.0,
-        height: 1688,
-        width: 780,
       })
       .then(function (dataUrl) {
         var link = document.createElement("a");
