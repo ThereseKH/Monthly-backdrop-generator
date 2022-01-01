@@ -1,15 +1,23 @@
 window.addEventListener("load", () => {
   // Website has loaded and will run the code inside this function
 
+  // Dowload calendar on buttton click
   const downloadImageBtnRef = document.getElementById("download-image-btn");
   downloadImageBtnRef.addEventListener("click", downloadCalender);
 
-  // Render calendar, todo: move to function
-  const today = new Date();
-
-  renderCalendar(today);
-
+  // Listen react on image/url change
   // TODO: Change src of "#background-image" on input change of "#background-url-inp"
+  initializeImageListeners();
+
+  // Listen react on selcted date or year
+  initializeMonthAndYearListeners();
+
+  // Render calendar based on today's date
+  const today = new Date();
+  renderCalendar(today);
+});
+
+function initializeImageListeners() {
   const backgroundUrlnpRef = document.getElementById("background-url-inp");
   const backgroundImageRef = document.getElementById("background-image");
   backgroundUrlnpRef.addEventListener("input", (e) => {
@@ -29,7 +37,36 @@ window.addEventListener("load", () => {
       reader.readAsDataURL(inp.target.files[0]);
     }
   });
-});
+}
+
+function initializeMonthAndYearListeners() {
+  const yearSelectRef = document.getElementById("year-input");
+  const monthSelectRef = document.getElementById("month-input");
+
+  let selectedYear = (yearSelectRef.value = new Date().getFullYear());
+  let selectedMonth = (monthSelectRef.value =
+    monthNames[new Date().getMonth()]);
+
+  yearSelectRef.addEventListener("input", (event) => {
+    selectedYear = event.target.value;
+    const selectedDate = new Date(
+      selectedYear +
+        " " +
+        (monthNames.findIndex((month) => selectedMonth == month) + 1)
+    );
+    renderCalendar(selectedDate);
+  });
+
+  monthSelectRef.addEventListener("change", (event) => {
+    selectedMonth = event.target.value;
+    const selectedDate = new Date(
+      selectedYear +
+        " " +
+        (monthNames.findIndex((month) => selectedMonth == month) + 1)
+    );
+    renderCalendar(selectedDate);
+  });
+}
 
 /**
  * Renders calender over desired month based on argument
@@ -125,25 +162,25 @@ function getTableRow(numberArr) {
   return `<tr>${tableCellsString}</tr>`;
 }
 
+const monthNames = [
+  "Januar",
+  "Februar",
+  "Mars",
+  "April",
+  "Mai",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "Desember",
+];
 /**
  * @param {Date} date
  * @return {string}
  */
 function getMonthNameFromDate(date) {
   const monthNum = date.getMonth();
-  const monthNames = [
-    "Januar",
-    "Februar",
-    "Mars",
-    "April",
-    "Mai",
-    "Juni",
-    "Juli",
-    "August",
-    "September",
-    "Oktober",
-    "November",
-    "Desember",
-  ];
   return monthNames[monthNum];
 }
