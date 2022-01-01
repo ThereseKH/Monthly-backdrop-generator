@@ -88,25 +88,20 @@ function generate2dArrayOfDays(date) {
     const day = currentDate.getDay();
     const date = currentDate.getDate();
 
-    if (!dateArray[week - firstWeekOfMonth]) {
+    // Edge case when current week is 52
+    const weekIdx =
+      week - firstWeekOfMonth < 0 ? week : week - firstWeekOfMonth;
+
+    if (!dateArray[weekIdx]) {
       // list of dates in this week does not exist
-      dateArray[week - firstWeekOfMonth] = [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-      ];
+      dateArray[weekIdx] = [null, null, null, null, null, null, null, null];
     }
-    dateArray[week - firstWeekOfMonth][0] = week;
+    dateArray[weekIdx][0] = week;
     if (day === 0) {
       // It is sunday, place date at last index, week will start at monday
-      dateArray[week - firstWeekOfMonth][day + 7] = date;
+      dateArray[weekIdx][day + 7] = date;
     } else {
-      dateArray[week - firstWeekOfMonth][day] = date;
+      dateArray[weekIdx][day] = date;
     }
 
     currentDate.setDate(date + 1);
