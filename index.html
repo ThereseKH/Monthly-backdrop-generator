@@ -13,70 +13,9 @@
     </script>
     <script src="./dom-to-image.min.js"></script>
     <script src="./script.js"></script>
-    <style>
-      * {
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-      }
-
-      #preview {
-        width: 390px;
-        height: 844px;
-        max-height: 844px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex-direction: column;
-        position: relative;
-      }
-
-      #shadow,
-      #background-image {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: center center;
-        position: absolute;
-      }
-
-      #shadow {
-        /* background-color: rgba(0, 0, 0, 0.1); */
-        background: linear-gradient(
-          to bottom,
-          transparent 40%,
-          rgba(0, 0, 0, 0.2) 55%
-        );
-      }
-
-      #calender-content {
-        z-index: 1;
-        padding-bottom: 100px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.267);
-        color: white;
-      }
-
-      #month-name {
-        text-align: center;
-        font-size: 32px;
-      }
-
-      table {
-        border-spacing: 0px;
-      }
-      tr > td:first-child {
-        padding-right: 10px;
-        border-right: 1px solid lightgray;
-      }
-      td {
-        text-align: center;
-        padding: 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <h1>Backdrop generator</h1>
     <label for="background-url-inp">
@@ -90,6 +29,28 @@
     </label>
     <br />
     <button id="download-image-btn">Download</button>
+
+    <div>
+      <label for="month"></label>
+      <select name="month" id="month-input">
+        <option selected>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+      </select>
+      <span>
+        <label for="year">Year:</label>
+        <input name="year" id="year-input" type="text" minlength="4" maxlength="4" placeholder="Year"></input>
+      </span>
+    </div>
     <section id="preview">
       <img
         id="background-image"

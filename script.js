@@ -7,17 +7,7 @@ window.addEventListener("load", () => {
   // Render calendar, todo: move to function
   const today = new Date();
 
-  const monthNameRef = document.getElementById("month-name");
-  monthNameRef.innerHTML = getMonthNameFromDate(today);
-  const weeksWithDates = generate2dArrayOfDays(today);
-
-  const tbodyRef = document.getElementById("table-body");
-  tbodyRef.innerHTML = "";
-
-  for (const week of weeksWithDates) {
-    const tableRowString = getTableRow(week);
-    tbodyRef.innerHTML += tableRowString;
-  }
+  renderCalendar(today);
 
   // TODO: Change src of "#background-image" on input change of "#background-url-inp"
   const backgroundUrlnpRef = document.getElementById("background-url-inp");
@@ -29,7 +19,6 @@ window.addEventListener("load", () => {
   });
 
   const imgUploadInpRef = document.getElementById("img-upload-inp");
-  console.dir(imgUploadInpRef);
   imgUploadInpRef.addEventListener("change", (inp) => {
     if (inp.target.files && inp.target.files[0]) {
       const reader = new FileReader();
@@ -42,11 +31,31 @@ window.addEventListener("load", () => {
   });
 });
 
+/**
+ * Renders calender over desired month based on argument
+ * @param {Date} date
+ */
+function renderCalendar(date) {
+  console.debug("Rendering calendar based on date:", date);
+  const monthNameRef = document.getElementById("month-name");
+  monthNameRef.innerHTML = getMonthNameFromDate(date);
+  const weeksWithDates = generate2dArrayOfDays(date);
+  console.debug(weeksWithDates);
+  const tbodyRef = document.getElementById("table-body");
+  tbodyRef.innerHTML = "";
+
+  for (const week of weeksWithDates) {
+    const tableRowString = getTableRow(week);
+    tbodyRef.innerHTML += tableRowString;
+  }
+}
+
 // TODO: Import font types
 function downloadCalender() {
   // Use dom to image to convert preview to image
   console.debug("Start to download");
   domtoimage.toPng(document.getElementById("preview")).then(function (dataUrl) {
+    // Call it twice to fix bug where image is black on ios
     domtoimage
       .toPng(document.getElementById("preview"), {
         quality: 1.0,
