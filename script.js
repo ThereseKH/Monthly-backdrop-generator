@@ -87,7 +87,7 @@ function initializeFontSelector() {
     monthNameRef.style.fontFamily = event.target.value;
   });
 
-  monthNameRef.style.fontFamily = monthNameRef.value;
+  monthNameRef.style.fontFamily = monthNameRef.value = fontOptions[0];
 }
 
 /**
