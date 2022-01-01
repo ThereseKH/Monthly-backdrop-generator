@@ -1,4 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Dancing+Script:wght@500&family=Licorice&family=Oooh+Baby&family=Roboto&family=The+Nautigal:wght@700&display=swap");
+
 * {
+  font-family: "Amatic SC", cursive;
+  font-family: "Dancing Script", cursive;
+  font-family: "Licorice", cursive;
+  font-family: "Oooh Baby", cursive;
+  font-family: "Roboto", sans-serif;
+  font-family: "The Nautigal", cursive;
+
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -45,7 +54,9 @@
 
 #month-name {
   text-align: center;
-  font-size: 32px;
+  font-size: 75px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
 table {

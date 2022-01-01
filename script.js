@@ -12,6 +12,9 @@ window.addEventListener("load", () => {
   // Listen react on selcted date or year
   initializeMonthAndYearListeners();
 
+  // Populate font selector
+  initializeFontSelector();
+
   // Render calendar based on today's date
   const today = new Date();
   renderCalendar(today);
@@ -68,6 +71,25 @@ function initializeMonthAndYearListeners() {
   });
 }
 
+function initializeFontSelector() {
+  const fontStyleSelectorRef = document.getElementById("font-style-selector");
+  fontStyleSelectorRef.innerHTML = "";
+
+  fontOptions.forEach((font) => {
+    const option = document.createElement("option");
+    option.innerHTML = font;
+
+    fontStyleSelectorRef.appendChild(option);
+  });
+
+  const monthNameRef = document.getElementById("month-name");
+  fontStyleSelectorRef.addEventListener("change", (event) => {
+    monthNameRef.style.fontFamily = event.target.value;
+  });
+
+  monthNameRef.style.fontFamily = monthNameRef.value;
+}
+
 /**
  * Renders calender over desired month based on argument
  * @param {Date} date
@@ -87,7 +109,6 @@ function renderCalendar(date) {
   }
 }
 
-// TODO: Import font types
 function downloadCalender() {
   // Use dom to image to convert preview to image
   console.debug("Start to download");
@@ -184,3 +205,12 @@ function getMonthNameFromDate(date) {
   const monthNum = date.getMonth();
   return monthNames[monthNum];
 }
+
+const fontOptions = [
+  "Amatic SC",
+  "Dancing Script",
+  "Licorice",
+  "Oooh Baby",
+  "Roboto",
+  "The Nautigal",
+];
