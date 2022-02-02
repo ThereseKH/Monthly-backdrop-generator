@@ -53,9 +53,9 @@ function initializeMonthAndYearListeners() {
   yearSelectRef.addEventListener("input", (event) => {
     selectedYear = event.target.value;
     const selectedDate = new Date(
-      selectedYear +
-        " " +
-        (monthNames.findIndex((month) => selectedMonth == month) + 1)
+      `${selectedYear}/${
+        monthNames.findIndex((month) => selectedMonth == month) + 1
+      }/01`
     );
     renderCalendar(selectedDate);
   });
@@ -63,10 +63,11 @@ function initializeMonthAndYearListeners() {
   monthSelectRef.addEventListener("change", (event) => {
     selectedMonth = event.target.value;
     const selectedDate = new Date(
-      selectedYear +
-        " " +
-        (monthNames.findIndex((month) => selectedMonth == month) + 1)
+      `${selectedYear}/${
+        monthNames.findIndex((month) => selectedMonth == month) + 1
+      }/01`
     );
+
     renderCalendar(selectedDate);
   });
 }
