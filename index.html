@@ -18,46 +18,64 @@
   </head>
 
   <body>
-    <h1>Backdrop generator</h1>
-    <label for="background-url-inp">
-      Url of background image:
-      <input type="text" id="background-url-inp" placeholder="Input Url" />
-    </label>
-    <br />
-    <label>
-      or upload image
-      <input type="file" id="img-upload-inp" />
-    </label>
-    <br />
-    <button id="download-image-btn">Download</button>
+    <section class="wizard-step" id="step-1">
+      <h1>Backdrop generator</h1>
+      <p>Hipp hurra, vi digger at du vil lage din egen bakgrunn, gled deg, den blir kul! Start med å last opp bilde :)</p>
+      <label>
+        Upload image
+        <input type="file" id="img-upload-inp" />
+      </label>
+      <br />
+    </section>
+    
+    <section class="wizard-step" id="step-2">
+      <!-- MONTH SELECTOR -->
+      <div>
+        <label for="month">Month:</label>
+        <select name="month" id="month-input">
+            <option>Januar</option>
+            <option>Februar</option>
+            <option selected>Mars</option>
+            <option>April</option>
+            <option>Mai</option>
+            <option>Juni</option>
+            <option>Juli</option>
+            <option>August</option>
+            <option>September</option>
+            <option>Oktober</option>
+            <option>November</option>
+            <option>Desember</option>
+        </select>
+        <span>
+          <label for="year">Year:</label>
+          <input name="year" id="year-input" type="text" minlength="4" maxlength="4" placeholder="Year"></input>
+        </span>
+      </div>
+      
+      <div>
+        <label for="font-style-selector">Font:</label>
+        <select name="font" id="font-style-selector"></select>
+      </div>
 
-    <!-- MONTH SELECTOR -->
-    <div>
-      <label for="month">Month:</label>
-      <select name="month" id="month-input">
-          <option>Januar</option>
-          <option>Februar</option>
-          <option selected>Mars</option>
-          <option>April</option>
-          <option>Mai</option>
-          <option>Juni</option>
-          <option>Juli</option>
-          <option>August</option>
-          <option>September</option>
-          <option>Oktober</option>
-          <option>November</option>
-          <option>Desember</option>
-      </select>
-      <span>
-        <label for="year">Year:</label>
-        <input name="year" id="year-input" type="text" minlength="4" maxlength="4" placeholder="Year"></input>
-      </span>
-    </div>
+    </section>
+
+    <section class="wizard-step" id="step-3">
+      <button id="download-image-btn">Download</button>
+    
+
+    </section>
+
+    <section class="wizard-step" id="step-4">
+      <!-- Regnende konfetti med dans under, tekst under som gratulerer med nytt bakgrunnsbilde og knapp med å lage ny bakgrunn -->
+    </section>
+  
 
 <div>
-  <label for="font-style-selector">Font:</label>
-  <select name="font" id="font-style-selector"></select>
+  <button onclick="nextStep(-1)">Go back</button>
+  <button onclick="nextStep(1)">I love it</button>
+
 </div>
+
 
     <section id="preview">
       <img

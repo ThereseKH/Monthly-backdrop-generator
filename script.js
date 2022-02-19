@@ -20,14 +20,21 @@ window.addEventListener("load", () => {
   renderCalendar(today);
 });
 
+let currentStep = 1;
+
+function nextStep(incromentCount) {
+  const steps = document.getElementsByClassName("wizard-step");
+  currentStep += incromentCount;
+  // Hide all steps
+  for (const step of steps) {
+    step.style.display = "none";
+  }
+  // Show current step
+  steps[currentStep - 1].style.display = "block";
+}
+
 function initializeImageListeners() {
-  const backgroundUrlnpRef = document.getElementById("background-url-inp");
   const backgroundImageRef = document.getElementById("background-image");
-  backgroundUrlnpRef.addEventListener("input", (e) => {
-    const url = e.target.value;
-    backgroundImageRef.src = url;
-    console.debug("settingImageSourceTo");
-  });
 
   const imgUploadInpRef = document.getElementById("img-upload-inp");
   imgUploadInpRef.addEventListener("change", (inp) => {
