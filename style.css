@@ -10,6 +10,35 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+body {
+  background: #fff3e9;
+  margin: 0;
+  padding: 0;
+}
+
+.wizard-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.wizard-step p {
+  text-align: center;
+}
+
+.wizard-step label {
+  text-align: center;
+}
+
+.navigate-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
+}
+
 #preview {
   width: 390px;
   height: 844px;
