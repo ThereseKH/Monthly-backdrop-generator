@@ -120,7 +120,8 @@ function renderCalendar(date) {
 function downloadCalender() {
   // Use dom to image to convert preview to image
   console.debug("Start to download");
-  domtoimage.toPng(document.getElementById("preview")).then(function (dataUrl) {
+  document.documentElement.style.setProperty("--scale-factor", 2);
+  domtoimage.toPng(document.getElementById("preview")).then(function () {
     // Call it twice to fix bug where image is black on ios
     domtoimage
       .toPng(document.getElementById("preview"), {
@@ -131,6 +132,7 @@ function downloadCalender() {
         link.download = "Your's truly backdrop";
         link.href = dataUrl;
         link.click();
+        document.documentElement.style.setProperty("--scale-factor", 0.7);
       });
   });
 }
