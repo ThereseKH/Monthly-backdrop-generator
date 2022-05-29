@@ -14,6 +14,8 @@ body {
   background: #fff3e9;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .wizard-step {
@@ -39,10 +41,36 @@ body {
   margin: 10px;
 }
 
+button {
+  background: #d8bba4;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #fff3e9;
+  color: #000;
+}
+
+
+:root {
+  --scale-factor: 0.8;
+}
+
+.preview-container {
+  display: flex;
+  justify-content: center;
+}
+
 #preview {
-  width: 390px;
-  height: 844px;
-  max-height: 844px;
+  width: calc(var(--scale-factor) * 390px);
+  height: calc(var(--scale-factor) * 844px);
+  max-height: calc(var(--scale-factor) * 844px);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -70,30 +98,31 @@ body {
 
 #calender-content {
   z-index: 1;
-  padding-bottom: 100px;
+  padding-bottom: calc(var(--scale-factor) * 100px);
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.267);
   color: white;
+  font-size: calc(var(--scale-factor) * 18px);
 }
 
 #month-name {
   text-align: center;
-  font-size: 75px;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
+  font-size: calc(var(--scale-factor) * 75px);
+  margin-bottom: calc(var(--scale-factor) * 10px);
+  letter-spacing: calc(var(--scale-factor) * 1px);
 }
 
 table {
   border-spacing: 0px;
 }
 tr > td:first-child {
-  padding-right: 10px;
-  border-right: 1px solid lightgray;
+  padding-right: calc(var(--scale-factor) * 10px);
+  border-right: calc(var(--scale-factor) * 1px) solid lightgray;
 }
 td {
   text-align: center;
-  padding: 5px;
+  padding: calc(var(--scale-factor) * 5px);
 }

@@ -18,86 +18,90 @@
   </head>
 
   <body>
-    <section class="wizard-step" id="step-1">
-      <h1>Backdrop generator</h1>
-      <p>Hipp hurra, vi digger at du vil lage din egen bakgrunn, gled deg, den blir kul! Start med å last opp bilde :)</p>
-      <label>
-        Upload image
-        <input type="file" id="img-upload-inp" />
-      </label>
-      <br />
-    </section>
-    
-    <section class="wizard-step" id="step-2" style="display: none;">
-      <!-- MONTH SELECTOR -->
-      <div>
-        <label for="month">Month:</label>
-        <select name="month" id="month-input">
-            <option>Januar</option>
-            <option>Februar</option>
-            <option selected>Mars</option>
-            <option>April</option>
-            <option>Mai</option>
-            <option>Juni</option>
-            <option>Juli</option>
-            <option>August</option>
-            <option>September</option>
-            <option>Oktober</option>
-            <option>November</option>
-            <option>Desember</option>
-        </select>
-        <span>
-          <label for="year">Year:</label>
-          <input name="year" id="year-input" type="text" minlength="4" maxlength="4" placeholder="Year"></input>
-        </span>
-      </div>
+    <div>
+      <section class="wizard-step" id="step-1">
+        <h1>Backdrop generator</h1>
+        <p>Hipp hurra, vi digger at du vil lage din egen bakgrunn, gled deg, den blir kul! Start med å last opp bilde :)</p>
+        <label>
+          Upload image
+          <input type="file" id="img-upload-inp" />
+        </label>
+        <br />
+      </section>
       
-      <div>
-        <label for="font-style-selector">Font:</label>
-        <select name="font" id="font-style-selector"></select>
-      </div>
-
-    </section>
-
-    <section class="wizard-step" id="step-3" style="display: none;">
-      <button id="download-image-btn">Download</button>
-    
-
-    </section>
-
-    <section class="wizard-step" id="step-4" style="display: none;">
-      <!-- Regnende konfetti med dans under, tekst under som gratulerer med nytt bakgrunnsbilde og knapp med å lage ny bakgrunn -->
-    </section>
+      <section class="wizard-step" id="step-2" style="display: none;">
+        <!-- MONTH SELECTOR -->
+        <div>
+          <label for="month">Month:</label>
+          <select name="month" id="month-input">
+              <option>Januar</option>
+              <option>Februar</option>
+              <option selected>Mars</option>
+              <option>April</option>
+              <option>Mai</option>
+              <option>Juni</option>
+              <option>Juli</option>
+              <option>August</option>
+              <option>September</option>
+              <option>Oktober</option>
+              <option>November</option>
+              <option>Desember</option>
+          </select>
+          <span>
+            <label for="year">Year:</label>
+            <input name="year" id="year-input" type="text" minlength="4" maxlength="4" placeholder="Year" />
+          </span>
+        </div>
+        
+        <div>
+          <label for="font-style-selector">Font:</label>
+          <select name="font" id="font-style-selector"></select>
+        </div>
   
-
-<div class="navigate-btns">
-  <button onclick="nextStep(-1)">Go back</button>
-  <button onclick="nextStep(1)">I love it</button>
-</div>
-
-
-    <section id="preview">
-      <img
-        id="background-image"
-        src="https://cdn.pixabay.com/photo/2013/12/08/19/15/hoarfrost-225261_960_720.jpg"
-      />
-      <span id="shadow"></span>
-      <div id="calender-content">
-        <h2 id="month-name"></h2>
-        <table>
-          <thead>
-            <th></th>
-            <th>M</th>
-            <th>T</th>
-            <th>O</th>
-            <th>T</th>
-            <th>F</th>
-            <th>L</th>
-            <th>S</th>
-          </thead>
-          <tbody id="table-body"></tbody>
-        </table>
+      </section>
+  
+      <section class="wizard-step" id="step-3" style="display: none;">
+        <button id="download-image-btn">Download</button>
+      
+  
+      </section>
+  
+      <section class="wizard-step" id="step-4" style="display: none;">
+        <!-- Regnende konfetti med dans under, tekst under som gratulerer med nytt bakgrunnsbilde og knapp med å lage ny bakgrunn -->
+      </section>
+    
+  
+      <div class="navigate-btns">
+        <button onclick="nextStep(-1)">Go back</button>
+        <button onclick="nextStep(1)">I love it</button>
       </div>
-    </section>
+    </div>
+
+    <div class="preview-container">
+
+      <section id="preview">
+        <img
+          id="background-image"
+          src="https://cdn.pixabay.com/photo/2013/12/08/19/15/hoarfrost-225261_960_720.jpg"
+        />
+        <span id="shadow"></span>
+        <div id="calender-content">
+          <h2 id="month-name"></h2>
+          <table>
+            <thead>
+              <th></th>
+              <th>M</th>
+              <th>T</th>
+              <th>O</th>
+              <th>T</th>
+              <th>F</th>
+              <th>L</th>
+              <th>S</th>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
